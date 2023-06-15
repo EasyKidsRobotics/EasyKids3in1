@@ -2,7 +2,11 @@ int rightMotor;
 int leftMotor;
 int numSensor = 7;
 uint16_t sensorPin[] = { 0, 1, 2, 3, 4, 5, 6 };
+uint16_t minSensorValues[] = { 0, 0, 0, 0, 0, 0, 0 };
+uint16_t maxSensorValues[] = { 4095, 4095, 4095, 4095, 4095, 4095, 4095 };
 uint16_t stateOnLine = 0;
+float KP ;
+float KD ;
 uint16_t setPoint;
 uint32_t lastPosition;
 float errors = 0;
@@ -15,7 +19,7 @@ int readline() {
   long avg = 0;
   long sum = 0;
   for (uint8_t i = 0; i < numSensor; i++) {
-    long value = map(analog(sensorPin[i]), minSensorValues[i], maxSensorValues[i], 1000, 0);  // จากนั้นก็เก็บเข้าไปยังตัวแป value
+    long value = map(analog(sensorPin[i]), minSensorValues[i], maxSensorValues[i], 1000, 0);  
     if (value > 200) {
       onLine = true;
     }
