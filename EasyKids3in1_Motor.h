@@ -63,14 +63,14 @@ void motor(int num, int speedM)
   }
   else if (speedM == 0)
   {
-    pwm.setPWM(0, 4095, 0);
-    pwm.setPWM(1, 4095, 0);
-    pwm.setPWM(2, 4095, 0);
-    pwm.setPWM(3, 4095, 0);
-    pwm.setPWM(4, 4095, 0);
-    pwm.setPWM(5, 4095, 0);
-    pwm.setPWM(6, 4095, 0);
-    pwm.setPWM(7, 4095, 0);
+  pwm.setPWM(0, 0, 4095);
+  pwm.setPWM(1, 0, 4095);
+  pwm.setPWM(2, 0, 4095);
+  pwm.setPWM(3, 0, 4095);
+  pwm.setPWM(4, 0, 4095);
+  pwm.setPWM(5, 0, 4095);
+  pwm.setPWM(6, 0, 4095);
+  pwm.setPWM(7, 0, 4095);
     
   }
 }
@@ -78,14 +78,14 @@ void motor(int num, int speedM)
 // ------ Function MotorStopAll ------
 void motorStopAll()
 {
-  pwm.setPWM(0, 4095, 0);
-  pwm.setPWM(1, 4095, 0);
-  pwm.setPWM(2, 4095, 0);
-  pwm.setPWM(3, 4095, 0);
-  pwm.setPWM(4, 4095, 0);
-  pwm.setPWM(5, 4095, 0);
-  pwm.setPWM(6, 4095, 0);
-  pwm.setPWM(7, 4095, 0);
+  pwm.setPWM(0, 0, 4095);
+  pwm.setPWM(1, 0, 4095);
+  pwm.setPWM(2, 0, 4095);
+  pwm.setPWM(3, 0, 4095);
+  pwm.setPWM(4, 0, 4095);
+  pwm.setPWM(5, 0, 4095);
+  pwm.setPWM(6, 0, 4095);
+  pwm.setPWM(7, 0, 4095);
 }
 
 // ------ Function Servo ------
