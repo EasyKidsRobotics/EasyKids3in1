@@ -2,8 +2,6 @@ int rightMotor;
 int leftMotor;
 int numSensor = 7;
 uint16_t sensorPin[] = { 0, 1, 2, 3, 4, 5, 6 };
-uint16_t minSensorValues[] = { 1056, 1178, 998, 1216, 1218, 670, 822 };
-uint16_t maxSensorValues[] = { 3950, 4080, 4037, 4095, 4095, 3472, 3248 };
 uint16_t stateOnLine = 0;
 float KP = 1.2;
 float KD = 1.8;
