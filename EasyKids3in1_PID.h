@@ -5,12 +5,13 @@ int valSensor3;
 int valSensor4;
 int valSensor5;
 int valSensor6;
+
 int rightMotor;
 int leftMotor;
 int numSensor = 7;
 uint16_t sensorPin[] = { 0, 1, 2, 3, 4, 5, 6 };
-uint16_t minSensorValues[] = { 0, 0, 0, 0, 0, 0, 0 };
-uint16_t maxSensorValues[] = { 4095, 4095, 4095, 4095, 4095, 4095, 4095 };
+uint16_t minSensorValues[] = { 1370, 2080, 1920, 1750, 2250, 1450, 1080 };//สีดำ
+uint16_t maxSensorValues[] = { 4090, 4090, 4090, 4090, 4090, 4070, 1080 };//สีขาว
 uint16_t stateOnLine = 0;
 float KP ;
 float KD ;
@@ -84,30 +85,58 @@ void timePID(int setSpeed, float iKP, float iKD, int setTime) {
   do {
     trackPID(setSpeed, iKP, iKD);
   } while ((millis() - timer) < setTime);
-  motorStopAll();
+  motor(1, 0);
+  motor(4, 0);
 }
 
 void crossLinePID(int setSpeed, float iKP, float iKD) {
-  do {
+  while (analog(0) > minSensorValues[0] + 1000  || analog(6) > minSensorValues[6] + 1000){
     trackPID(setSpeed, iKP, iKD);
-  } while (analog(0) > minSensorValues[0] + 300 || analog(1) > minSensorValues[1] + 300 && analog(5) > minSensorValues[5] + 300 || analog(6) > minSensorValues[6] + 300);
-  motorStopAll();
+  }
+  delay(30);
+  motor(1, 0);
+  motor(4, 0);
 }
 
 void dicularLeftPID(int setSpeed, float iKP, float iKD) {
   do {
     trackPID(setSpeed, iKP, iKD);
-  } while (analog(4) > minSensorValues[4] + 300 || analog(5) > minSensorValues[5] + 300 || analog(6) > minSensorValues[6] + 300);
-  motorStopAll();
+  } while (analog(4) > minSensorValues[4]  || analog(5) > minSensorValues[5]  || analog(6) > minSensorValues[6]);
+  motor(1, 0);
+  motor(4, 0);
 }
 
 void dicularRightPID(int setSpeed, float iKP, float iKD) {
   do {
     trackPID(setSpeed, iKP, iKD);
-  } while (analog(0) > minSensorValues[0] + 300 || analog(1) > minSensorValues[1] + 300 || analog(2) > minSensorValues[2] + 300);
-  motorStopAll();
+  } while (analog(0) > minSensorValues[0]  || analog(1) > minSensorValues[1]  || analog(2) > minSensorValues[2]);
+  motor(1, 0);
+  motor(4, 0);
 }
-
+void leftPID(){
+    motor(1,-50);
+    motor(4,50);
+    delay(20);
+  do{
+    motor(1,-50);
+    motor(4,50);
+  }  
+  while(analog(6) > minSensorValues[6] + 1000 );
+  motor(1, 0);
+  motor(4, 0);
+}
+void rightPID(){
+  motor(1,50);
+    motor(4,-50);
+    delay(20);
+  do{
+    motor(1,50);
+    motor(4,-50);
+  }  
+  while(analog(0) > minSensorValues[0] + 1000 );
+  motor(1, 0);
+  motor(4, 0);
+}
 void readSensor()
 {
   display.setTextFont(GLCD);
