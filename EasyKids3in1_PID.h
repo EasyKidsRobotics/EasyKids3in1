@@ -3,8 +3,6 @@ int leftMotor;
 int numSensor = 7;
 uint16_t sensorPin[] = { 0, 1, 2, 3, 4, 5, 6 };
 uint16_t stateOnLine = 0;
-float KP = 1.2;
-float KD = 1.8;
 uint16_t setPoint;
 uint32_t lastPosition;
 float errors = 0;
