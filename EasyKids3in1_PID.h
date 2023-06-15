@@ -11,7 +11,7 @@ int leftMotor;
 int numSensor = 7;
 uint16_t sensorPin[] = { 0, 1, 2, 3, 4, 5, 6 };
 uint16_t minSensorValues[] = { 1370, 2080, 1920, 1750, 2250, 1450, 1080 };//สีดำ
-uint16_t maxSensorValues[] = { 4090, 4090, 4090, 4090, 4090, 4070, 1080 };//สีขาว
+uint16_t maxSensorValues[] = { 4090, 4090, 4090, 4090, 4090, 4070, 4070 };//สีขาว
 uint16_t stateOnLine = 0;
 float KP ;
 float KD ;
