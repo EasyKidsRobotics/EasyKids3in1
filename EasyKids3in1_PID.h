@@ -1,3 +1,10 @@
+int valSensor0;
+int valSensor1;
+int valSensor2;
+int valSensor3;
+int valSensor4;
+int valSensor5;
+int valSensor6;
 int rightMotor;
 int leftMotor;
 int numSensor = 7;
@@ -103,13 +110,6 @@ void dicularRightPID(int setSpeed, float iKP, float iKD) {
 
 void readSensor()
 {
-  int valSensor0;
-  int valSensor1;
-  int valSensor2;
-  int valSensor3;
-  int valSensor4;
-  int valSensor5;
-  int valSensor6;
   display.setTextFont(GLCD);
   display.setTextSize(2);
   display.setCursor(15, 5);
