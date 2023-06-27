@@ -20,6 +20,33 @@ void EasyKids_Setup(){
     pwm.begin();
     pinMode(sw, INPUT);
     pinMode(BUZZER, OUTPUT);
+    pwm.setPWMFreq(50);
+    pwm.setPWM(0, 0, 0);
+    pwm.setPWM(1, 0, 0);
+    pwm.setPWM(2, 0, 0);
+    pwm.setPWM(3, 0, 0);
+    pwm.setPWM(4, 0, 0);
+    pwm.setPWM(5, 0, 0);
+    pwm.setPWM(6, 0, 0);
+    pwm.setPWM(7, 0, 0);
+    pwm.setPWM(0, 0, 0);
+    pwm.setPWM(8, 0, 0);
+    pwm.setPWM(9, 0, 0);
+    pwm.setPWM(10, 0, 0);
+    pwm.setPWM(11, 0, 0);
+    pwm.setPWM(12, 0, 0);
+    delay(10);
+}
+void EasyKidsPID_Setup(){
+    Serial.begin(115200);
+    display.begin();
+    displayClear();
+    rgbSetBrightness(20);
+    rgbFill(BLACK);
+    rgbFillCar(BLACK);
+    pwm.begin();
+    pinMode(sw, INPUT);
+    pinMode(BUZZER, OUTPUT);
     pwm.setPWMFreq(5000);
     pwm.setPWM(0, 0, 0);
     pwm.setPWM(1, 0, 0);
