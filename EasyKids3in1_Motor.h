@@ -6,13 +6,6 @@ int currentPos[6]; // current positions for 6 servos numbered 1 - 6
 // ------ Function Motor ------
 void motor(int num, int speedM)
 {
-  pwm.setPWM(8, 0, 0);
-  pwm.setPWM(9, 0, 0);
-  pwm.setPWM(10, 0, 0);
-  pwm.setPWM(11, 0, 0);
-  pwm.setPWM(12, 0, 0);
-  pwm.setPWMFreq(5000);
-   
   if (speedM > 0)
   {
     int mapSpeed = map(speedM, 0, 100, 0, 4095);
@@ -91,7 +84,7 @@ void motorStopAll()
 // ------ Function Servo ------
 void servo(int pin, uint16_t degree)
 {
-  pwm.setPWMFreq(50);
+  //pwm.setPWMFreq(50);
   uint16_t mapServo = map(degree, 0, 180, 165, 500);
   if (pin == 1)
   {
@@ -125,7 +118,7 @@ void servo(int pin, uint16_t degree)
 
 void servoSpeed(int servoNum, int delayTime, int to)
 {
-  pwm.setPWMFreq(50);
+ // pwm.setPWMFreq(50);
   if (currentPos[servoNum] == to)
     return; // Nothing to do if it's already there
 
